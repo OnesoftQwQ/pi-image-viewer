@@ -27,6 +27,7 @@
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { Type } from "typebox";
 import { complete } from "@earendil-works/pi-ai";
+import { Text } from "@earendil-works/pi-tui";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -440,6 +441,15 @@ Use this when you need to extract specific information: "What error message is s
           "Your specific question about the image content. Be precise about what information you need.",
       }),
     }),
+    renderCall(args, theme, context) {
+      const text = (context.lastComponent as Text | undefined) ?? new Text("", 0, 0);
+      let content = theme.fg("toolTitle", theme.bold("ask_image "));
+      if (args.question) {
+        content += theme.fg("dim", `"${args.question}"`);
+      }
+      text.setText(content);
+      return text;
+    },
     async execute(
       _toolCallId,
       params: { image_id: string; question: string },
