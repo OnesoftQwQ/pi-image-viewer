@@ -1,0 +1,25 @@
+{
+  "name": "pi-image-viewer",
+  "version": "1.0.0",
+  "description": "让纯文本模型也能「看」图片的 Pi 扩展 — 自动拦截图片并通过视觉模型分析",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "image",
+    "vision",
+    "image-viewer"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/pi-image-viewer.git"
+  },
+  "pi": {
+    "extensions": ["./extensions"]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "typebox": "*"
+  }
+}
